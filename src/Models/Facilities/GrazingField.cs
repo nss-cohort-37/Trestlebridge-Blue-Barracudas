@@ -39,7 +39,6 @@ namespace Trestlebridge.Models.Facilities
                 _animals.Add(animal);
                 return;
             }
-            //
             else
             {
                 Console.WriteLine("Too many animals in there!");
