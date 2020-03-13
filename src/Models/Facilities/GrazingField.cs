@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Trestlebridge;
+using Trestlebridge.Actions;
 using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
@@ -11,8 +13,15 @@ namespace Trestlebridge.Models.Facilities
         private int _capacity = 3;
         private Guid _id = Guid.NewGuid();
 
-        private List<IGrazing> _animals = new List<IGrazing>();
+        public double animalCount
+        {
+            get
+            {
+                return _animals.Count;
+            }
+        }
 
+        private List<IGrazing> _animals = new List<IGrazing>();
         public double Capacity
         {
             get
@@ -23,14 +32,21 @@ namespace Trestlebridge.Models.Facilities
 
         public void AddResource(IGrazing animal)
         {
-            if (_animals.Count <= Capacity)
+            // while (true)
+            // {
+            if (_animals.Count < Capacity)
             {
                 _animals.Add(animal);
+                return;
             }
             else
             {
                 Console.WriteLine("Too many animals in there!");
+                Console.WriteLine("Hit ENTER to continue.");
+                Console.ReadLine();
+                return;
             }
+            //}
         }
 
         public void AddResource(List<IGrazing> animals)
