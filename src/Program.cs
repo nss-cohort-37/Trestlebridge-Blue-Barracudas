@@ -45,6 +45,7 @@ namespace Trestlebridge
                 {
                     DisplayBanner();
                     CreateFacility.CollectInput(Trestlebridge);
+                    
                 }
                 else if (option == "2")
                 {
