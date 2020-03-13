@@ -1,30 +1,39 @@
 using System;
-using System.Text;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Trestlebridge.Interfaces;
 
-
-namespace Trestlebridge.Models.Facilities {
+namespace Trestlebridge.Models.Facilities
+{
     public class GrazingField : IFacility<IGrazing>
     {
-        private int _capacity = 50;
+        private int _capacity = 3;
         private Guid _id = Guid.NewGuid();
 
         private List<IGrazing> _animals = new List<IGrazing>();
 
-        public double Capacity {
-            get {
+        public double Capacity
+        {
+            get
+            {
                 return _capacity;
             }
         }
 
-        public void AddResource (IGrazing animal)
+        public void AddResource(IGrazing animal)
         {
-            // TODO: implement this...
-            throw new NotImplementedException();
+            if (_animals.Count <= Capacity)
+            {
+                _animals.Add(animal);
+            }
+            else
+            {
+                Console.WriteLine("Too many animals in there!");
+            }
         }
 
-        public void AddResource (List<IGrazing> animals) 
+        public void AddResource(List<IGrazing> animals)
         {
             // TODO: implement this...
             throw new NotImplementedException();
