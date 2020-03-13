@@ -16,6 +16,7 @@ namespace Trestlebridge.Actions
             {
                 Console.WriteLine($"{i + 1}. {farm.GrazingFields[i].ToString()} Max Capacity: {farm.GrazingFields[i].Capacity}");
             }
+            //
             Console.WriteLine();
 
             // How can I output the type of animal chosen here?
