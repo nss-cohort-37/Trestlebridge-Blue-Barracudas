@@ -1,7 +1,7 @@
 namespace Trestlebridge.Interfaces
 {
-    public interface IPlowed: ISeedProducing
+    public interface IPlowed : ISeedProducing
     {
-        
+        string Type { get; }
     }
 }
