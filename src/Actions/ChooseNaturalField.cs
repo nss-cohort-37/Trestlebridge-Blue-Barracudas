@@ -7,19 +7,19 @@ using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Actions
 {
-    public class ChooseGrazingField
+    public class ChooseNaturalField
     {
         public static void CollectInput(Farm farm, IGrazing animal)
         {
             Utils.Clear();
 
-            for (int i = 0; i < farm.GrazingFields.Count; i++)
+            for (int i = 0; i < farm.NaturalFields.Count; i++)
             {
 
-                if (farm.GrazingFields[i].animalCount != farm.GrazingFields[i].Capacity)
+                if (farm.NaturalFields[i].animalCount != farm.NaturalFields[i].Capacity)
                 {
 
-                    Console.WriteLine($"{i + 1}. {farm.GrazingFields[i].ToString()} Max Capacity: {farm.GrazingFields[i].Capacity}");
+                    Console.WriteLine($"{i + 1}. {farm.NaturalFields[i].ToString()} Max Capacity: {farm.NaturalFields[i].Capacity}");
                 }
 
             }
@@ -32,7 +32,7 @@ namespace Trestlebridge.Actions
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine()) - 1;
 
-            farm.GrazingFields[choice].AddResource(animal);
+            farm.NaturalFields[choice].AddResource(animal);
 
             /*
                 Couldn't get this to work. Can you?

@@ -12,6 +12,7 @@ namespace Trestlebridge.Actions
         {
             Console.WriteLine("1. Grazing field");
             Console.WriteLine("2. Plowed field");
+            Console.WriteLine("3. Natural field");
 
             Console.WriteLine();
             Console.WriteLine("Choose what you want to create");
@@ -25,6 +26,16 @@ namespace Trestlebridge.Actions
                     farm.AddGrazingField(new GrazingField());
                     Console.WriteLine("Your new grazing field was created!");
                     foreach (var field in farm.GrazingFields)
+                    {
+                        Console.WriteLine($"{field.ToString()}");
+                    }
+                    Console.WriteLine("Please hit enter");
+                    Console.ReadLine();
+                    break;
+                case 3:
+                    farm.AddNaturalField(new NaturalField());
+                    Console.WriteLine("Your new natural field was created!");
+                    foreach (var field in farm.NaturalFields)
                     {
                         Console.WriteLine($"{field.ToString()}");
                     }
