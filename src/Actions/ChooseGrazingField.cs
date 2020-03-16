@@ -18,8 +18,38 @@ namespace Trestlebridge.Actions
 
                 if (farm.GrazingFields[i].animalCount != farm.GrazingFields[i].Capacity)
                 {
+                    var cowCount = 0;
+                    var pigCount = 0;
+                    var goatCount = 0;
+                    var ostrichCount = 0;
+                    var sheepCount = 0;
 
                     Console.WriteLine($"{i + 1}. {farm.GrazingFields[i].ToString()} Max Capacity: {farm.GrazingFields[i].Capacity}");
+
+                    cowCount = farm.GrazingFields[i]._animals
+                        .Where(monkeyButt => monkeyButt.Type == "Cow")
+                        .Count();
+                    Console.WriteLine($"Cow: {cowCount}");
+
+                    pigCount = farm.GrazingFields[i]._animals
+                        .Where(monkeyButt => monkeyButt.Type == "Pig")
+                        .Count();
+                    Console.WriteLine($"Pig: {pigCount}");
+
+                    goatCount = farm.GrazingFields[i]._animals
+                        .Where(monkeyButt => monkeyButt.Type == "Goat")
+                        .Count();
+                    Console.WriteLine($"Goat: {goatCount}");
+
+                    ostrichCount = farm.GrazingFields[i]._animals
+                        .Where(monkeyButt => monkeyButt.Type == "Ostrich")
+                        .Count();
+                    Console.WriteLine($"Ostrich: {ostrichCount}");
+
+                    sheepCount = farm.GrazingFields[i]._animals
+                        .Where(monkeyButt => monkeyButt.Type == "Sheep")
+                        .Count();
+                    Console.WriteLine($"Sheep: {sheepCount}\n");
                 }
 
             }

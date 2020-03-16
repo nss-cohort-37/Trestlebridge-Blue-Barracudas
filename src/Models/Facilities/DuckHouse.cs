@@ -11,8 +11,8 @@ namespace Trestlebridge.Models.Facilities
     public class DuckHouse : IFacility<IDuck>
 
     {
-        private int _capacity = 2;
-        private Guid _id = Guid.NewGuid ();
+        private int _capacity = 12;
+        private Guid _id = Guid.NewGuid();
         public double duckCount
         {
             get
@@ -20,11 +20,7 @@ namespace Trestlebridge.Models.Facilities
                 return _ducks.Count;
             }
         }
-        private List<IDuck> _ducks = new List<IDuck> ();
-
-        // private List<IEggsProducing> _eggs = new List<IEggsProducing>();
-
-        // private List<IFeatherProducing> _feathers = new List<IFeatherProducing>();
+        public List<IDuck> _ducks = new List<IDuck>();
         public double Capacity
         {
             get
@@ -32,39 +28,39 @@ namespace Trestlebridge.Models.Facilities
                 return _capacity;
             }
         }
-        public void AddResource (IDuck duck)
+        public void AddResource(IDuck duck)
         {
-        
+
             if (_ducks.Count < Capacity)
             {
-                _ducks.Add (duck);
+                _ducks.Add(duck);
                 return;
             }
             //
             else
             {
-                Console.WriteLine ("Too many Ducks in there!");
-                Console.WriteLine ("Hit ENTER to continue.");
-                Console.ReadLine ();
+                Console.WriteLine("Too many Ducks in there!");
+                Console.WriteLine("Hit ENTER to continue.");
+                Console.ReadLine();
                 return;
             }
-        
+
         }
 
-        public void AddResource (List<IDuck> animals)
+        public void AddResource(List<IDuck> animals)
         {
             // TODO: implement this...
-            throw new NotImplementedException ();
+            throw new NotImplementedException();
         }
 
 
-        public override string ToString ()
+        public override string ToString()
         {
-            StringBuilder output = new StringBuilder ();
+            StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
-            output.Append ($"Duck House {shortId} has {this._ducks.Count} ducks!\n");
-            this._ducks.ForEach (a => output.Append ($"   {a}\n"));
-            return output.ToString ();
+            output.Append($"Duck House {shortId} has {this._ducks.Count} ducks!\n");
+            this._ducks.ForEach(a => output.Append($"   {a}\n"));
+            return output.ToString();
         }
     }
 }
