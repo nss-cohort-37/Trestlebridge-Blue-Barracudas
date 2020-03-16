@@ -1,7 +1,8 @@
 namespace Trestlebridge.Interfaces
 {
-    public interface INatural: ISeedProducing
+    public interface INatural : ISeedProducing
     {
-        
+        string Type { get; }
+
     }
 }
