@@ -14,6 +14,8 @@ namespace Trestlebridge.Models
         public List<ChickenHouse> ChickenHouses { get; } = new List<ChickenHouse>();
         public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
 
+        public List<PlowedField> PlowedFields { get; } = new List<PlowedField>();
+
         /*
             This method must specify the correct product interface of the
             resource being purchased.
@@ -26,11 +28,35 @@ namespace Trestlebridge.Models
                     case "Cow":
                     GrazingFields[index].AddResource((IGrazing)resource);
                     break;
+                    case "Sheep":
+                    GrazingFields[index].AddResource((IGrazing)resource);
+                    break;
+                    case "Pig":
+                    GrazingFields[index].AddResource((IGrazing)resource);
+                    break;
+                    case "Ostrich":
+                    GrazingFields[index].AddResource((IGrazing)resource);
+                    break;
+                    case "Goat":
+                    GrazingFields[index].AddResource((IGrazing)resource);
+                    break;
                      case "Duck":
                     DuckHouses[index].AddResource((IDuck)resource);
                     break;
                      case "Chicken":
                     ChickenHouses[index].AddResource((IChicken)resource);
+                    break;
+                      case "Sesame":
+                    PlowedFields[index].AddResource((IPlowed)resource);
+                    NaturalFields[index].AddResource((INatural)resource);
+                    break;
+                      case "Wildflower":
+                    PlowedFields[index].AddResource((IPlowed)resource);
+                    NaturalFields[index].AddResource((INatural)resource);                    
+                    break;
+                      case "Sunflower":
+                    PlowedFields[index].AddResource((IPlowed)resource);
+                    NaturalFields[index].AddResource((INatural)resource);
                     break;
                     default:
                     break;
@@ -57,10 +83,10 @@ namespace Trestlebridge.Models
             ChickenHouses.Add(house);
         }
 
-        //    public void AddPlowedField (PlowedField field)
-        // {
-        //     PlowedFields.Add(field);
-        // }
+           public void AddPlowedField (PlowedField field)
+        {
+            PlowedFields.Add(field);
+        }
 
 
         public override string ToString()
@@ -71,6 +97,7 @@ namespace Trestlebridge.Models
             NaturalFields.ForEach(nf => report.Append(nf));
             DuckHouses.ForEach(dh => report.Append(dh));
             ChickenHouses.ForEach(ch => report.Append(ch));
+            PlowedFields.ForEach(pf => report.Append(pf));
 
             return report.ToString();
         }
