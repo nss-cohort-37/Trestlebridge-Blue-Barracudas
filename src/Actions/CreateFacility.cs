@@ -34,16 +34,16 @@ namespace Trestlebridge.Actions
                     Console.WriteLine("Please hit enter");
                     Console.ReadLine();
                     break;
-                    //       case 2:
-                    // farm.addPlowedField(new PlowedField());
-                    // Console.WriteLine("Your new plowed field was created!");
-                    // foreach (var field in farm.PlowedFields)
-                    // {
-                    //     Console.WriteLine($"{field.ToString()}");
-                    // }
-                    // Console.WriteLine("Please hit enter");
-                    // Console.ReadLine();
-                    // break;
+                          case 2:
+                    farm.AddPlowedField(new PlowedField());
+                    Console.WriteLine("Your new plowed field was created!");
+                    foreach (var field in farm.PlowedFields)
+                    {
+                        Console.WriteLine($"{field.ToString()}");
+                    }
+                    Console.WriteLine("Please hit enter");
+                    Console.ReadLine();
+                    break;
                 case 3:
                     farm.AddNaturalField(new NaturalField());
                     Console.WriteLine("Your new natural field was created!");

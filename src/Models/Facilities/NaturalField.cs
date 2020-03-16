@@ -9,18 +9,18 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class NaturalField : IFacility<IGrazing>
+    public class NaturalField : IFacility<INatural>
     {
-        private int _capacity = 1;
+        private int _capacity = 2;
         private Guid _id = Guid.NewGuid();
-        public double animalCount
+        public double seedCount
         {
             get
             {
-                return _animals.Count;
+                return _seeds.Count;
             }
         }
-        private List<IGrazing> _animals = new List<IGrazing>();
+        private List<INatural> _seeds = new List<INatural>();
         public double Capacity
         {
             get
@@ -28,26 +28,26 @@ namespace Trestlebridge.Models.Facilities
                 return _capacity;
             }
         }
-        public void AddResource(IGrazing animal)
+        public void AddResource(INatural seed)
         {
             // while (true)
             // {
-            if (_animals.Count < Capacity)
+            if (_seeds.Count < Capacity)
             {
-                _animals.Add(animal);
+                _seeds.Add(seed);
                 return;
             }
             //
             else
             {
-                Console.WriteLine("Too many animals in there!");
+                Console.WriteLine("Too many seeds in there!");
                 Console.WriteLine("Hit ENTER to continue.");
                 Console.ReadLine();
                 return;
             }
             //}
         }
-        public void AddResource(List<IGrazing> animals)
+        public void AddResource(List<INatural> seeds)
         {
             // TODO: implement this...
             throw new NotImplementedException();
@@ -56,8 +56,8 @@ namespace Trestlebridge.Models.Facilities
         {
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
-            output.Append($"Natural field {shortId} has {this._animals.Count} animals\n");
-            this._animals.ForEach(a => output.Append($"   {a}\n"));
+            output.Append($"Natural field {shortId} has {this._seeds.Count} plants\n");
+            this._seeds.ForEach(a => output.Append($"   {a}\n"));
             return output.ToString();
         }
     }
