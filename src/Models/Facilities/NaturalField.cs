@@ -9,10 +9,10 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class GrazingField : IFacility<IGrazing>
+    public class NaturalField : IFacility<IGrazing>
     {
         private int _capacity = 1;
-        private Guid _id = Guid.NewGuid ();
+        private Guid _id = Guid.NewGuid();
         public double animalCount
         {
             get
@@ -20,7 +20,7 @@ namespace Trestlebridge.Models.Facilities
                 return _animals.Count;
             }
         }
-        private List<IGrazing> _animals = new List<IGrazing> ();
+        private List<IGrazing> _animals = new List<IGrazing>();
         public double Capacity
         {
             get
@@ -28,37 +28,37 @@ namespace Trestlebridge.Models.Facilities
                 return _capacity;
             }
         }
-        public void AddResource (IGrazing animal)
+        public void AddResource(IGrazing animal)
         {
             // while (true)
             // {
             if (_animals.Count < Capacity)
             {
-                _animals.Add (animal);
+                _animals.Add(animal);
                 return;
             }
             //
             else
             {
-                Console.WriteLine ("Too many animals in there!");
-                Console.WriteLine ("Hit ENTER to continue.");
-                Console.ReadLine ();
+                Console.WriteLine("Too many animals in there!");
+                Console.WriteLine("Hit ENTER to continue.");
+                Console.ReadLine();
                 return;
             }
             //}
         }
-        public void AddResource (List<IGrazing> animals)
+        public void AddResource(List<IGrazing> animals)
         {
             // TODO: implement this...
-            throw new NotImplementedException ();
+            throw new NotImplementedException();
         }
-        public override string ToString ()
+        public override string ToString()
         {
-            StringBuilder output = new StringBuilder ();
+            StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
-            output.Append ($"Grazing field {shortId} has {this._animals.Count} animals\n");
-            this._animals.ForEach (a => output.Append ($"   {a}\n"));
-            return output.ToString ();
+            output.Append($"Natural field {shortId} has {this._animals.Count} animals\n");
+            this._animals.ForEach(a => output.Append($"   {a}\n"));
+            return output.ToString();
         }
     }
 }
