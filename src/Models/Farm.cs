@@ -10,7 +10,12 @@ namespace Trestlebridge.Models
 {
     public class Farm
     {
+
         public List<GrazingField> GrazingFields { get; } = new List<GrazingField> ();
+
+        public List<ProcessedPlowedField> ProcessedPlowed  { get; } = new List<ProcessedPlowedField>();
+
+        public List<NaturalField> ProcessedNatural  { get; } = new List<NaturalField>();
 
         public List<DuckHouse> DuckHouses { get; } = new List<DuckHouse> ();
         public List<ChickenHouse> ChickenHouses { get; } = new List<ChickenHouse> ();
@@ -66,9 +71,30 @@ namespace Trestlebridge.Models
 
         }
 
+         public void ProcessResource <T> (IProcess process, int index)
+        {
+            Console.WriteLine (typeof (T).ToString ());
+            switch (typeof (T).ToString ())
+            {
+                case "Compost":
+                    ProcessedPlowed[index].AddProcess ((IPlowed) process);
+                    break;
+               
+                default:
+                    break;
+            }
+
+        }
+
+
         public void AddGrazingField (GrazingField field)
         {
             GrazingFields.Add (field);
+        }
+
+        public void AddProcessedPlowed (ProcessedPlowedField field)
+        {
+            ProcessedPlowed.Add (field);
         }
         public void AddNaturalField (NaturalField field)
         {

@@ -9,10 +9,14 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class NaturalField : IFacility<INatural>
+    public class NaturalField : IFacility<INatural> 
     {
         private int _capacity = 12;
         private Guid _id = Guid.NewGuid ();
+
+        
+        public string ProcessType {get;} = "Compost";
+
         public double seedCount
         {
             get
@@ -52,6 +56,20 @@ namespace Trestlebridge.Models.Facilities
             // TODO: implement this...
             throw new NotImplementedException ();
         }
+
+        // public void AddProcess (INatural process)
+        // {
+        //     // TODO: implement this...
+        //     throw new NotImplementedException ();
+        // }
+        
+          
+        //   public void AddProcess (List<INatural> processes)
+        // {
+        //     // TODO: implement this...
+        //     throw new NotImplementedException ();
+        // }
+        
         public override string ToString ()
         {
             StringBuilder output = new StringBuilder ();
