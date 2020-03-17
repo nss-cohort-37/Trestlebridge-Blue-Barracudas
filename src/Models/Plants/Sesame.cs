@@ -1,19 +1,27 @@
 using System;
+
 using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Plants
 {
-    public class Sesame : IResource, IPlowed
+    public class Sesame : IResource, IPlowed, ICompost
     {
         private int _seedsProduced = 40;
         public string Type { get; } = "Sesame";
 
-        public double Harvest () {
+        public double Harvest ()
+        {
             return _seedsProduced;
         }
 
-        public override string ToString () {
+        public override string ToString ()
+        {
             return $"Sesame. Yum!";
+        }
+
+        public void addProcessing ()
+        {
+
         }
     }
 }
