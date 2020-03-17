@@ -5,16 +5,17 @@ using System.Linq;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Processes;
+using Trestlebridge.Models.Plants;
 
 namespace Trestlebridge.Actions
 {
     public class ChooseCompostFacility
     {
-        public static void CollectInput (Farm farm, IProcess compost)
+        public static void CollectInput (Farm farm, IProcess process)
         {
             Utils.Clear ();
 
-            for (int i = 0; i < farm.PlowedFields.; i++)
+            for (int i = 0; i < farm.PlowedFields.Count; i++)
             {
 
                 if (farm.PlowedFields[i].processCount != farm.PlowedFields[i].ProcessCapacity)
@@ -41,7 +42,8 @@ namespace Trestlebridge.Actions
             Console.Write ("> ");
             int choice = Int32.Parse (Console.ReadLine ()) - 1;
 
-            farm.PlowedFields[choice].AddProcess(compost);
+            farm.ProcessedPlowed[choice].AddProcess(process);
+            // farm.PlowedFields[choice].Remove(seed);
 
             /*
                 Couldn't get this to work. Can you?

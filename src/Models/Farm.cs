@@ -15,6 +15,9 @@ namespace Trestlebridge.Models
 
         public List<ProcessedPlowedField> ProcessedPlowed  { get; } = new List<ProcessedPlowedField>();
 
+        // make a class called composter 
+        // Farm only have one of them...
+
         public List<NaturalField> ProcessedNatural  { get; } = new List<NaturalField>();
 
         public List<DuckHouse> DuckHouses { get; } = new List<DuckHouse> ();
@@ -77,7 +80,7 @@ namespace Trestlebridge.Models
             switch (typeof (T).ToString ())
             {
                 case "Compost":
-                    ProcessedPlowed[index].AddProcess ((IPlowed) process);
+                    ProcessedPlowed[index].AddProcess ((IProcess) process);
                     break;
                
                 default:

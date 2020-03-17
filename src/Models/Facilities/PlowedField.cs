@@ -11,6 +11,26 @@ namespace Trestlebridge.Models.Facilities
 {
     public class PlowedField : IFacility<IPlowed> 
     {
+
+          private int _processCapacity = 1;
+         public double processCount
+        {
+            get
+            {
+                return _processes.Count;
+            }
+        }
+
+                public double ProcessCapacity
+        {
+            get
+            {
+                return _processCapacity;
+            }
+        }
+
+    public List<IProcess> _processes = new List<IProcess> ();
+    
         private int _capacity = 12;
         private Guid _id = Guid.NewGuid ();
 
@@ -65,80 +85,17 @@ namespace Trestlebridge.Models.Facilities
             throw new NotImplementedException ();
         }
 
-        
-            private int _processCapacity = 1;
-         public double processCount
-        {
-            get
-            {
-                return _processes.Count;
-            }
-        }
-
-
-        public List<IPlowed> _processes = new List<IPlowed> ();
-
-
-        public void processedCount (List<IPlowed> _processes)
-        {
-            foreach (IProcess process in _processes)
-            {
-                if (process.Type == "Compost");
-                {
-
-                }
-            }
-        }
-
-           public double ProcessCapacity
-        {
-            get
-            {
-                return _processCapacity;
-            }
-        }
-          public void AddProcess (IPlowed process)
-        {
-            // TODO: implement this...
-              {
-            // while (true)
-            // {
-            if (_processes.Count < ProcessCapacity)
-            {
-                _processes.Add (process);
-                return;
-            }
-            //
-            else
-            {
-                Console.WriteLine ("Too many processes in there!");
-                Console.WriteLine ("Hit ENTER to continue.");
-                Console.ReadLine ();
-                return;
-            }
-            //}
-        }
-        }
-        
-        public void AddProcess (List<IPlowed> processes)
-        {
-            // TODO: implement this...
-            throw new NotImplementedException ();
-        }
-        
+          
       
         public override string ToString ()
         {
             StringBuilder output = new StringBuilder ();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
             output.Append ($"Plowed field {shortId} has {this._seeds.Count}  plants\n");
-
-            string pShortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
-            output.Append ($"Plowed field {pShortId} has {this._processes.Count}  plants in process\n");
+            // this._seeds.ForEach (a => output.Append ($"   {a}\n"));
 
             return output.ToString ();
 
         }
-
     }
 }

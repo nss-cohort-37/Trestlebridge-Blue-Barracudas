@@ -8,7 +8,7 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class ProcessedPlowedField : IProcessFacility<IPlowed>
+    public class ProcessedPlowedField : IProcessFacility<IProcess>
     {
         private Guid _id = Guid.NewGuid ();
 
@@ -22,19 +22,19 @@ namespace Trestlebridge.Models.Facilities
         }
 
 
-        public List<IPlowed> _processes = new List<IPlowed> ();
+        public List<IProcess> _processes = new List<IProcess> ();
 
 
-        public void processedCount (List<IPlowed> _processes)
-        {
-            foreach (IProcess process in _processes)
-            {
-                if (process.Type == "Compost");
-                {
-
-                }
-            }
-        }
+        // public void processedCount (List<IProcess> _processes)
+        // {
+        //     foreach (IProcess process in _processes)
+        //     {
+        //         if (process.Type == "Compost");
+        //         {
+          
+        //         }
+        //     }
+        // }
 
            public double ProcessCapacity
         {
@@ -43,7 +43,7 @@ namespace Trestlebridge.Models.Facilities
                 return _processCapacity;
             }
         }
-          public void AddProcess (IPlowed process)
+          public void AddProcess (IProcess process)
         {
             // TODO: implement this...
               {
@@ -66,7 +66,7 @@ namespace Trestlebridge.Models.Facilities
         }
         }
         
-        public void AddProcess (List<IPlowed> processes)
+        public void AddProcess (List<IProcess> processes)
         {
             // TODO: implement this...
             throw new NotImplementedException ();
