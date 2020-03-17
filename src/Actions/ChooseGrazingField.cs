@@ -60,9 +60,29 @@ namespace Trestlebridge.Actions
 
             Console.WriteLine($"Place the animal where?");
             Console.Write("> ");
-            int choice = Int32.Parse(Console.ReadLine()) - 1;
+            string choiceChecker = Console.ReadLine();
+            try
+            {
+                int choice = Int32.Parse(choiceChecker) - 1;
+                if (choice < farm.GrazingFields.Count)
+                {
+                    farm.GrazingFields[choice].AddResource(animal);
+                }
+                else
+                {
+                    Console.WriteLine("Not a valid field. You may need to create one!");
+                    Console.ReadLine();
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine($"This is not a valid choice. Try again.");
+                Console.ReadLine();
+            }
 
-            farm.GrazingFields[choice].AddResource(animal);
+
+
+
 
             /*
                 Couldn't get this to work. Can you?
