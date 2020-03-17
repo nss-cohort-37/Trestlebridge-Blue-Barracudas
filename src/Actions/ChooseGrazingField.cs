@@ -9,9 +9,9 @@ namespace Trestlebridge.Actions
 {
     public class ChooseGrazingField
     {
-        public static void CollectInput(Farm farm, IGrazing animal)
+        public static void CollectInput (Farm farm, IGrazing animal)
         {
-            Utils.Clear();
+            Utils.Clear ();
 
             for (int i = 0; i < farm.GrazingFields.Count; i++)
             {
@@ -24,65 +24,61 @@ namespace Trestlebridge.Actions
                     var ostrichCount = 0;
                     var sheepCount = 0;
 
-                    Console.WriteLine($"{i + 1}. {farm.GrazingFields[i].ToString()} Max Capacity: {farm.GrazingFields[i].Capacity}");
+                    Console.WriteLine ($"{i + 1}. {farm.GrazingFields[i].ToString()} Max Capacity: {farm.GrazingFields[i].Capacity}");
 
                     cowCount = farm.GrazingFields[i]._animals
-                        .Where(monkeyButt => monkeyButt.Type == "Cow")
-                        .Count();
-                    Console.WriteLine($"Cow: {cowCount}");
+                        .Where (monkeyButt => monkeyButt.Type == "Cow")
+                        .Count ();
+                    Console.WriteLine ($"Cow: {cowCount}");
 
                     pigCount = farm.GrazingFields[i]._animals
-                        .Where(monkeyButt => monkeyButt.Type == "Pig")
-                        .Count();
-                    Console.WriteLine($"Pig: {pigCount}");
+                        .Where (monkeyButt => monkeyButt.Type == "Pig")
+                        .Count ();
+                    Console.WriteLine ($"Pig: {pigCount}");
 
                     goatCount = farm.GrazingFields[i]._animals
-                        .Where(monkeyButt => monkeyButt.Type == "Goat")
-                        .Count();
-                    Console.WriteLine($"Goat: {goatCount}");
+                        .Where (monkeyButt => monkeyButt.Type == "Goat")
+                        .Count ();
+                    Console.WriteLine ($"Goat: {goatCount}");
 
                     ostrichCount = farm.GrazingFields[i]._animals
-                        .Where(monkeyButt => monkeyButt.Type == "Ostrich")
-                        .Count();
-                    Console.WriteLine($"Ostrich: {ostrichCount}");
+                        .Where (monkeyButt => monkeyButt.Type == "Ostrich")
+                        .Count ();
+                    Console.WriteLine ($"Ostrich: {ostrichCount}");
 
                     sheepCount = farm.GrazingFields[i]._animals
-                        .Where(monkeyButt => monkeyButt.Type == "Sheep")
-                        .Count();
-                    Console.WriteLine($"Sheep: {sheepCount}\n");
+                        .Where (monkeyButt => monkeyButt.Type == "Sheep")
+                        .Count ();
+                    Console.WriteLine ($"Sheep: {sheepCount}\n");
                 }
 
             }
 
             //
-            Console.WriteLine();
+            Console.WriteLine ();
             // How can I output the type of animal chosen here?
 
-            Console.WriteLine($"Place the animal where?");
-            Console.Write("> ");
-            string choiceChecker = Console.ReadLine();
+            Console.WriteLine ($"Place the animal where?");
+            Console.Write ("> ");
+            string choiceChecker = Console.ReadLine ();
             try
             {
-                int choice = Int32.Parse(choiceChecker) - 1;
+                int choice = Int32.Parse (choiceChecker) - 1;
                 if (choice < farm.GrazingFields.Count)
                 {
-                    farm.GrazingFields[choice].AddResource(animal);
+                    farm.GrazingFields[choice].AddResource (animal);
                 }
                 else
                 {
-                    Console.WriteLine("Not a valid field. You may need to create one!");
-                    Console.ReadLine();
+                    Console.WriteLine ("Not a valid field. You may need to create one!");
+                    Console.ReadLine ();
                 }
             }
             catch (Exception)
             {
-                Console.WriteLine($"This is not a valid choice. Try again.");
-                Console.ReadLine();
+                Console.WriteLine ($"This is not a valid choice. Try again.");
+                Console.ReadLine ();
             }
-
-
-
-
 
             /*
                 Couldn't get this to work. Can you?

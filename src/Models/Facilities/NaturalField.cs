@@ -11,6 +11,7 @@ namespace Trestlebridge.Models.Facilities
 {
     public class NaturalField : IFacility<INatural>
     {
+
         private int _capacity = 12;
         private Guid _id = Guid.NewGuid ();
         public double seedCount
