@@ -5,7 +5,7 @@ namespace Trestlebridge.Interfaces
 {
     public interface IProcess
     {
-        string Type { get; }
+        string ProcessType { get; }
         
     }
 }

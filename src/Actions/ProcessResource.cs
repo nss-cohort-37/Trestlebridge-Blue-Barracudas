@@ -25,6 +25,7 @@ namespace Trestlebridge.Actions
             {
                     case 1:
                     ChooseCompostFacility.CollectInput(farm, new Compost());
+                    farm.AddProcessedPlowed( new PlowedField());
                     break;
                     case 2:
                     // Butchering.CollectInput(farm);

@@ -11,7 +11,7 @@ namespace Trestlebridge.Actions
 {
     public class ChooseCompostFacility
     {
-        public static void CollectInput (Farm farm, IProcess process)
+        public static void CollectInput (Farm farm, IPlowed process)
         {
             Utils.Clear ();
 
@@ -22,10 +22,11 @@ namespace Trestlebridge.Actions
                 {
 
                     var processedCount = 0;
+
                     Console.WriteLine ($"{i + 1}. {farm.PlowedFields[i].ToString()} Max Capacity: {farm.PlowedFields[i].ProcessCapacity}");
 
                     processedCount = farm.PlowedFields[i]._processes
-                        .Where (process => process.Type == "Compost")
+                        .Where (process => process.ProcessType == "Compost")
                         .Count ();
                     Console.WriteLine ($" {processedCount}");
 
@@ -42,7 +43,36 @@ namespace Trestlebridge.Actions
             Console.Write ("> ");
             int choice = Int32.Parse (Console.ReadLine ()) - 1;
 
-            farm.ProcessedPlowed[choice].AddProcess(process);
+         for (int i = 0; i < farm.PlowedFields.Count; i++)
+    {
+            if (choice == farm.PlowedFields[i])
+                {
+
+                    var sesameCount = 0;
+                    var sunflowerCount = 0;
+                    Console.WriteLine ($"{i + 1}. {farm.PlowedFields[i].ToString()}");
+
+                    sesameCount = farm.PlowedFields[i]._seeds
+                        .Where (plant => plant.Type == "Sesame")
+                        .Count ();
+                    Console.WriteLine ($"Sesame: {sesameCount}");
+
+                    sunflowerCount = farm.PlowedFields[i]._seeds
+                        .Where (plant => plant.Type == "Sunflower")
+                        .Count ();
+                    Console.WriteLine ($"Sunflower: {sunflowerCount}");
+
+                }
+    }
+
+            Console.WriteLine($"What do you want to compost");
+         
+
+            farm.PlowedFields[choice].AddProcess(process);
+            // farm.PlowedFields[choice].RemoveResource(seed);
+
+            
+            
             // farm.PlowedFields[choice].Remove(seed);
 
             /*
